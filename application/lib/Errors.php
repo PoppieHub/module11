@@ -19,7 +19,9 @@ if (! function_exists('dd')) {
                     new Symfony\Component\VarDumper\Dumper\HtmlDumper;
                 $dumper->dump((new Symfony\Component\VarDumper\Cloner\VarCloner)->cloneVar($value));
             } else {
+                echo '<pre>';
                 var_dump($value);
+                echo '</pre>';
             }
         }, func_get_args());
         die(1);
