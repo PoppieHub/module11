@@ -56,7 +56,7 @@ class Router {
             $routeController = ucfirst($this->params['controller']);
             $controller = 'application\controllers\\'.$routeController.'.php';
 
-            if (class_exists($controller)) {
+            if (file_exists($controller)) {
                 echo 'Найден контроллер';
             } else {
                 echo 'Ошибка! Не найден контроллер: '.$controller;
