@@ -9,6 +9,9 @@ class HomeController extends AbstractController {
     public function indexAction() {
         //$this->view->path = 'home/main';
         //$this->view->layout = 'custom';
-        $this->view->render($this->renderDefult()['title']);
+        $forRender = parent::renderDefult();
+        $this->view->render([
+            'title' => $forRender['title'],
+        ]);
     }
 }

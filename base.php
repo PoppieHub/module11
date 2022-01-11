@@ -11,8 +11,8 @@
     <div class="flex-container">
 
         <div class="header">     
-               <?php include 'include/header/logo.inc.php' ?>
-               <?php include 'include/left-menu/menu.inc.php' ?>
+               <?php include 'includes/header/logo.inc.php' ?>
+               <?php include 'includes/top-menu/menu.inc.php' ?>
         </div>       
 
         <div class="about_me">
@@ -40,7 +40,7 @@
 
             <div class="knowledge">
                                    
-                    <?php  include 'include/user-blcok/knowledge.inc.php'; ?>
+                    <?php  include 'includes/user-blcok/knowledge.inc.php'; ?>
                     <?php   echo $a, ' ', $b, ' ', $c; ?> <br>
 
                     <?php
@@ -64,7 +64,7 @@
             </div>
         </div>
 
-            <?php include 'include/footer/footer.inc.php' ?>
+            <?php include 'includes/footer/footer.inc.php' ?>
 
     </div>
 

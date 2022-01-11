@@ -2,6 +2,8 @@
 
 namespace application\core;
 
+use application\core\View;
+
 class Router {
 
     protected $routes = [];
@@ -65,13 +67,13 @@ class Router {
                     $controller = new $path($this->params);
                     $controller->$action();
                 } else {
-                    echo 'Fatal Error! Не найден метод: '.$action.'() в классе '.'"'.$path.'".';
+                    View::displayError('Не найден метод: '.$action.'() в классе '.'"'.$path.'".', 404);
                 }
             } else {
-                echo 'Fatal Error! Не найден класс: '.$path;
+                View::displayError("Не найден класс: '$path'", 404);
             }
         } else {
-            echo 'Редирект на 404';
+            View::displayError(null,404);
         }
     }
 }

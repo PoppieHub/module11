@@ -1,3 +1,4 @@
+/*
 const surName = document.querySelector('#surnameOutput');
 const firstName = document.querySelector('#firstNameOutput');
 const secondName = document.querySelector('#secondNameOutput');
@@ -8,6 +9,7 @@ const image = document.querySelector('.avatar');
 
 const btnDelete =  document.querySelector('.delete');
 const btnRefresh =  document.querySelector('.refresh');
+ */
 
 function generate () {
     const initPerson = personGenerator.getPerson();
@@ -31,11 +33,11 @@ function generate () {
      */
 }
 
-/*
+
 window.addEventListener('load', function () {
     generate();
 });
-
+/*
 
 btnDelete.addEventListener('click',function () {
 

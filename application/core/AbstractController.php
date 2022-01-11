@@ -16,7 +16,7 @@ abstract class AbstractController {
     public function renderDefult() {
 
         return [
-            'title' => 'Сайт-визитка',
+            'title' => 'Визитка',
         ];
     }
 }

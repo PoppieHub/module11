@@ -20,13 +20,25 @@ class View {
 
     public function render($title, $value = []) {
 
-        if (file_exists('application/teamplates/'.$this->modifyPath($this->path).'.php')) {
+        $path = 'application/teamplates/';
+
+        if (file_exists($path.$this->modifyPath($this->path).'.php')) {
             ob_start();
-            require 'application/teamplates/'.$this->modifyPath($this->path).'.php';
+            require $path.$this->modifyPath($this->path).'.php';
             $content = ob_get_clean();
-            require 'application/teamplates/layout/'.$this->layout.'.php';
+            require $path.'/layout/'.$this->layout.'.php';
         } else {
-            echo '404';
+            self::displayError(null,404);
         }
+    }
+
+    public function redirect($url) {
+        header('location: '.$url);
+        exit();
+    }
+
+    public static function displayError($text,$code) {
+        require 'application/teamplates/layout/error.php';
+        exit();
     }
 }

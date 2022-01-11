@@ -1,34 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet');
-
 html,
 body {
     height: 100%;
+    background-color: #474747 !important;
 }
 
 .greetings,
 p,
 h1, 
 h2 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .flex-container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1200px;
-    background-color: #E6E6E6;
-    padding: 5px;
+    max-width: 1100px;
+    background-color: #2b2929;
     height: 100%;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 680px) {
+    .flex-container {
+        min-width: max-content;
+        min-height: max-content;
+        position: relative;
+    }
+
+
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 25%;
-    margin-bottom: 3em;
-    background-color: #CED8F6;
+    min-height: 120px;
+    margin-bottom: 10px;
+    background-color: #191212;
 }
 
 ul  {
@@ -37,21 +46,26 @@ ul  {
 }
 
 ul li {
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 li a {
     text-decoration: none;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 1.5rem;
-    color: #848484;
-    font-weight: 800;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.4rem;
+    color: whitesmoke;
+    font-weight: 600;
 }
 
 .logo img {
     width: 70px;
     height: 70px;
-    margin-left: 10px;
+    margin-left: 50px;
+    fill: whitesmoke;
+}
+
+li a:hover {
+    color: Cornsilk;
 }
 
 .about_me {
@@ -102,6 +116,10 @@ h2 {
     color: #424242;
 }
 
+h6 {
+    color: whitesmoke;
+}
+
 h1 {
     color: #08298A;
     text-align: center;
@@ -109,6 +127,14 @@ h1 {
 }
 
 .footer {
-    background-color: #5882FA;
+    background-color: #191212;
+    min-height: 50px;
     flex: 0 0 auto;
+    position:absolute;
+    bottom:0;
+    min-width: 1100px;
+}
+
+#footer-label {
+    text-align: center;
 }
