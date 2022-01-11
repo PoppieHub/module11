@@ -24,21 +24,24 @@ class Router {
 
     /*
      * Добавление маршрута
+     * Позволяют перехватить строку, которая начинается и заканчивается строкой из $route.
      */
     public function addRoute($route, $params) {
-        $route = '#^'.$route.'$#';  // позволяют перехватить строку, которая начинается и заканчивается строкой из $route.
+        $route = '#^'.$route.'$#';
         $this->routes[$route] = $params;
     }
 
     /*
     * Проверка маршрута
+    * Получает основной путь без полного url (Текущий маршрут).
+    * Если найдены совпадения текущего маршрута и маршрута из $routes.php через регулярку, то запишет в текущую переменную и вернет true.
     */
     public function checkRoute() {
-        $url = $_SERVER['REQUEST_URI']; // получает основной путь без полного url
+        $url = $_SERVER['REQUEST_URI'];
         $url = trim($url, '/');
 
         foreach ($this->routes as $route => $params) {
-            if (preg_match($route, $url, $checked)) {  // Если найдены совпадения текущего маршрута и маршрута из $routes.php через регулярку, то запишет в текущую переменную и вернет true.
+            if (preg_match($route, $url, $checked)) {
                 $this->params = $params;
 
                 return true;
@@ -54,12 +57,18 @@ class Router {
     public function redirectToRoute() {
         if ($this->checkRoute()) {
             $routeController = ucfirst($this->params['controller']);
-            $controller = 'application\controllers\\'.$routeController.'.php';
+            $path = 'application\controllers\\'.$routeController;
 
-            if (file_exists($controller)) {
-                echo 'Найден контроллер';
+            if (class_exists($path)) {
+                $action = $this->params['action'].'Action';
+                if (method_exists($path, $action)) {
+                    $controller = new $path($this->params);
+                    $controller->$action();
+                } else {
+                    echo 'Fatal Error! Не найден метод: '.$action.'() в классе '.'"'.$path.'".';
+                }
             } else {
-                echo 'Ошибка! Не найден контроллер: '.$controller;
+                echo 'Fatal Error! Не найден класс: '.$path;
             }
         } else {
             echo 'Редирект на 404';

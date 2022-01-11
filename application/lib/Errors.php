@@ -10,8 +10,7 @@ if (! function_exists('dd')) {
      * @param  mixed
      * @return void
      */
-    function dd()
-    {
+    function dd() {
         array_map(function ($value) {
             if (class_exists(Symfony\Component\VarDumper\Dumper\CliDumper::class)) {
                 $dumper = 'cli' === PHP_SAPI ?
