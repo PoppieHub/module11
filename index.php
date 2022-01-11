@@ -1,6 +1,6 @@
 <?php
 
-require 'application/lib/Errors.php';
+require 'application/lib/errors.php';
 
 use application\core\Router;
 
