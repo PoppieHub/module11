@@ -20,7 +20,7 @@ class View {
 
     public function render($hand, $value = []) {
 
-        $path = 'application/teamplates/';
+        $path = 'application/templates/';
 
         if (file_exists($path.$this->modifyPath($this->path).'.php')) {
             ob_start();
@@ -38,7 +38,7 @@ class View {
     }
 
     public static function displayError($text,$code) {
-        require 'application/teamplates/layout/error.php';
+        require 'application/templates/layout/error.php';
         exit();
     }
 }
