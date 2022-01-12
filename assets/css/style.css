@@ -1,6 +1,6 @@
 html,
 body {
-    height: 100%;
+    /* height: 100%; */
     background-color: #474747 !important;
 }
 
@@ -16,9 +16,10 @@ h2 {
     flex-direction: column;
     margin: 0 auto;
     max-width: 1100px;
+    min-height: 0;
     background-color: #2b2929;
     height: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 0;
 }
 
 @media (max-width: 680px) {
@@ -79,30 +80,28 @@ li a:hover {
     align-items: center;
 }
 
-.fullname {
-    margin-right: 20px;
-    flex-basis: 750px;
-}
-
-.myImg {
-    margin-top: 150px;
-    padding-left: 20px;
-    flex-basis: 450px;
-}
-
-.knowledge {
-    display: flex;   
-    justify-content: center;
-}
-
 .article {
     margin-top: 2em;   
 }
 
+.img {
+    max-width: 300px;
+    max-height: 400px;
+}
+
+.wrapper-person {
+    max-width: 200px;
+    align-content: center;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
 
 p {
-    font-size: 1.2rem;
-    color: #08298A;
+    font-family: 'EB Garamond', serif;
+    font-size: 25px;
+    color: whitesmoke;
     padding-left: 20px;
 }
 
@@ -121,7 +120,7 @@ h6 {
 }
 
 h1 {
-    color: #08298A;
+    color: whitesmoke;
     text-align: center;
     font-size: 2rem;
 }
@@ -130,9 +129,11 @@ h1 {
     background-color: #191212;
     min-height: 50px;
     flex: 0 0 auto;
+    /*
     position:absolute;
     bottom:0;
     min-width: 1100px;
+     */
 }
 
 #footer-label {

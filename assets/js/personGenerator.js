@@ -122,6 +122,24 @@ const personGenerator = {
         }
     }`,
 
+    city: `{
+        "count": 12,
+        "list": {
+            "id_1" : "Санкт-Петербург",
+            "id_2" : "Москва",
+            "id_3" : "Екатеренбург",
+            "id_4" : "Челябинск",
+            "id_5" : "Киев",
+            "id_6" : "Одесса",
+            "id_7" : "Минск",
+            "id_8" : "Варшава",
+            "id_9" : "Владивосток",
+            "id_10": "Лос-анджелес",
+            "id_11": "Нью-Йорк",
+            "id_12": "Вильнюс"
+        }
+    }`,
+
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
 
@@ -188,7 +206,7 @@ const personGenerator = {
             day = this.randomIntNumber(1,31);
         }
 
-        return `${day} ${month} ${year}`;
+        return [`${day} ${month} ${year}`,[day, getMonth(month), year]];
     },
 
     randomProfession: function(gender) {
@@ -213,6 +231,10 @@ const personGenerator = {
         }
     },
 
+    randomCity: function () {
+        return this.randomValue(this.city);
+    },
+
     getPerson: function () {
         this.person = {};
         this.person.gender = this.randomGender();
@@ -221,7 +243,28 @@ const personGenerator = {
         this.person.secondName = this.randomSecondName(this.person.gender);
         this.person.birth = this.randomDate();
         this.person.profession = this.randomProfession(this.person.gender);
+        this.person.city = this.randomCity();
 
         return this.person;
     }
 };
+
+function getMonth(mont) {
+    const currentDate = {
+        "1" : "января",
+        "2" : "февраля",
+        "3" : "марта",
+        "4" : "апреля",
+        "5" : "мая",
+        "6" : "июня",
+        "7" : "июля",
+        "8" : "августа",
+        "9": "сентября",
+        "10": "октября",
+        "11": "ноября",
+        "12" : "декабря"
+    };
+
+    return parseInt(Object.keys(currentDate).find(key => currentDate[key] === mont));
+
+}

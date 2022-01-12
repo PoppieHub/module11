@@ -14,7 +14,24 @@ const btnRefresh =  document.querySelector('.refresh');
 function generate () {
     const initPerson = personGenerator.getPerson();
 
+    const birth = initPerson.birth;
+    let day = addZero(birth[1][0]), month = addZero(birth[1][1]), year = addZero(birth[1][2]);
+
+    function addZero(arg) {
+        if (arg.toString().length === 1) {
+           return arg = '0' + arg.toString();
+        }
+
+        return arg.toString();
+    }
+
+    const date = `${month}/${day}/${year}`;
+
+    initPerson.age = calculateAge(date);
+
     console.log(initPerson);
+
+
     /*
     surName.innerText = initPerson.surName;
     firstName.innerText = initPerson.firstName;
@@ -32,7 +49,6 @@ function generate () {
     }
      */
 }
-
 
 window.addEventListener('load', function () {
     generate();
@@ -55,3 +71,17 @@ btnDelete.addEventListener('click',function () {
 btnRefresh.addEventListener('click',()=>generate());
 
  */
+
+function calculateAge (birthDate) {
+    birthDate = new Date(birthDate);
+    let otherDate = new Date();
+
+    let years = (otherDate.getFullYear() - birthDate.getFullYear());
+
+    if (otherDate.getMonth() < birthDate.getMonth() ||
+        otherDate.getMonth() === birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
+        years--;
+    }
+
+    return years;
+}

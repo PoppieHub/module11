@@ -18,7 +18,7 @@ class View {
         return mb_strtolower($str);
     }
 
-    public function render($title, $value = []) {
+    public function render($hand, $value = []) {
 
         $path = 'application/teamplates/';
 

@@ -47,10 +47,10 @@
                         $a = 10;
                         $b = 20;
                         $c = $a + $b;
-                        echo $c;
+                        echo '<p>'.$c.'</p>';
                     ?>   <br>                
                      <?php
-                        echo $d;
+                        echo'<p>'.$d.'</p>';
                     ?> 
 
             </div>
