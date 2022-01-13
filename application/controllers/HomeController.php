@@ -3,12 +3,21 @@
 namespace application\controllers;
 
 use application\core\AbstractController;
+use application\lib\Db;
 
 class HomeController extends AbstractController {
 
     public function indexAction() {
         //$this->view->path = 'home/main';
         //$this->view->layout = 'custom';
+
+        $db = new Db();
+
+        $params = [
+            'id' => 1,
+        ];
+
+        dd($db->haveMany('SELECT * FROM author WHERE author = :id', $params));
 
         $hello = 'Визитка на мини mvc';
         $age = 22;
@@ -27,5 +36,6 @@ class HomeController extends AbstractController {
             'surname' => $surname,
             'city' => $city,
         ]);
+
     }
 }
