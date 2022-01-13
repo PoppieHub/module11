@@ -3,7 +3,6 @@
 namespace application\controllers;
 
 use application\core\AbstractController;
-use application\lib\Db;
 
 class HomeController extends AbstractController {
 
@@ -11,31 +10,20 @@ class HomeController extends AbstractController {
         //$this->view->path = 'home/main';
         //$this->view->layout = 'custom';
 
-        $db = new Db();
-
         $params = [
-            'id' => 1,
+            'id' => true,
         ];
 
-        dd($db->haveMany('SELECT * FROM author WHERE author = :id', $params));
-
-        $hello = 'Визитка на мини mvc';
-        $age = 22;
-        $firstName = 'Андрей';
-        $surname = 'Королев';
-        $city = 'Челябинск';
-
+        //dd($this->model->getAuthor($params));
 
         $forRender = parent::renderDefult();
+        $forRender['hello'] = 'Визитка на мини mvc';
+        $forRender['age'] = 22;
+        $forRender['firstName'] = 'Андрей';
+        $forRender['surname'] = 'Королев';
+        $forRender['city'] = 'Челябинск';
 
-        $this->view->render( [
-            'title' => $forRender['title'],
-            'hello' => $hello,
-            'age' => $age,
-            'firstName' => $firstName,
-            'surname' => $surname,
-            'city' => $city,
-        ]);
+        $this->view->render($forRender);
 
     }
 }

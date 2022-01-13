@@ -13,7 +13,7 @@ class View {
         $this->path = $route['controller'].'/'.$route['action'];
     }
 
-    protected function modifyPath($str) {
+    public static function modifyPath($str) {
         $str =  str_replace( "Controller","", $str);
         return mb_strtolower($str);
     }
