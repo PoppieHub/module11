@@ -32,6 +32,12 @@ function generate () {
     console.log(initPerson);
 
 
+    $.get('http://numbersapi.com/random/year?callback=showNumber', function(data) {
+        $('#random-fact').text(data);
+    });
+
+
+
     /*
     surName.innerText = initPerson.surName;
     firstName.innerText = initPerson.firstName;

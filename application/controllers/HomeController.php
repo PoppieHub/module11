@@ -3,6 +3,7 @@
 namespace application\controllers;
 
 use application\core\AbstractController;
+use application\models\PeriodOfLife;
 
 class HomeController extends AbstractController {
 
@@ -14,14 +15,45 @@ class HomeController extends AbstractController {
             'id' => true,
         ];
 
-        //dd($this->model->getAuthor($params));
+        $json = json_decode($this->model->getJson(), true);
 
         $forRender = parent::renderDefult();
-        $forRender['hello'] = 'Визитка на мини mvc';
-        $forRender['age'] = 22;
-        $forRender['firstName'] = 'Андрей';
-        $forRender['surname'] = 'Королев';
-        $forRender['city'] = 'Челябинск';
+
+        if (!empty($json)) {
+            $forRender['hello'] = $json['title'];
+            $forRender['description'] = $json['description'];
+        }
+
+        foreach ($this->model->getAuthor($params) as $value) {
+
+            if ($value['firstName'] && $value['lastName']) {
+                $forRender['firstName'] = $value['firstName'];
+                $forRender['lastName'] = $value['lastName'];
+            }
+
+            if ($value['city'] || $value['age']) {
+                $forRender['birthDays'] = $this->model->daysBetween($value['birth'], date('Y/m/d', time()));
+                $forRender['age'] = $this->model->getAge($value['birth']);
+                $forRender['city'] = $value['city'];
+            }
+
+        }
+
+        $period = json_decode($this->model->getPeriodsOfLife(), true);
+
+        foreach ($period as $value) {
+
+            if ($forRender['age'] <= $value['periodUpTo'] && $value['periodFrom'] === 'none') {
+                $forRender['ageDescription'] = $value['namePeriod'];
+                break;
+            } else if ($value['periodFrom'] <= $forRender['age'] && $value['periodUpTo'] === 'none') {
+                $forRender['ageDescription'] = $value['namePeriod'];
+                break;
+            } else if ($value['periodFrom'] <= $forRender['age'] && $forRender['age'] <= $value['periodUpTo']) {
+                $forRender['ageDescription'] = $value['namePeriod'];
+                break;
+            }
+        }
 
         $this->view->render($forRender);
 

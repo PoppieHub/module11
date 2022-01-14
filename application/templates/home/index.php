@@ -1,29 +1,40 @@
 <div class="about_me">
-    <h1><?=  $hand['hello'] ?></h1>
+    <?php if ($hand['hello']): ?>
+        <h1><?=  $hand['hello'] ?></h1>
+    <?php endif; ?>
 
     <div class="data row col-12 mt-3">
-        <div class="fullname col-9">
+        <div class="container col-9">
             <div class="wrapper-person">
                 <div class="person row">
-                    <div class="fio row col-12">
+                    <div class="empty-block col-3"></div>
+                    <div class="content row col-9">
                         <div class="firstName col-md-6">
-                            <p><?= $hand['firstName'] ?></p>
+                            <?php if ($hand['firstName']): ?>
+                                <p class="first-content"><?= $hand['firstName'] ?></p>
+                            <?php endif; ?>
                         </div>
                         <div class="lastName col-md-6">
-                            <p><?= $hand['surname'] ?></p>
+                            <?php if ($hand['lastName']): ?>
+                                <p><?= $hand['lastName'] ?></p>
+                            <?php endif; ?>
                         </div>
-                    </div>
-                    <div class="cityLabel col-md-6">
-                        <p>Город:</p>
-                    </div>
-                    <div class="city col-md-6">
-                        <p><?= $hand['city'] ?></p>
-                    </div>
-                    <div class="ageLabel col-md-6">
-                        <p>Возраст:</p>
-                    </div>
-                    <div class="age col-md-6">
-                        <p><?= $hand['age'] ?></p>
+                        <div class="cityLabel col-md-6">
+                            <p class="first-content">Город:</p>
+                        </div>
+                        <div class="city col-md-6">
+                            <?php if ($hand['city']): ?>
+                                <p><?= $hand['city'] ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <div class="ageLabel col-md-6">
+                            <p class="first-content">Возраст:</p>
+                        </div>
+                        <div class="age col-md-6">
+                            <?php if ($hand['age']): ?>
+                                <p><?= $hand['age'] ?></p>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,23 +45,30 @@
     </div>
 
     <div class="knowledge">
-
-        <?php  include 'includes/user-blcok/knowledge.inc.php'; ?>
-        <?= '<p>'.$a.' '.$b.' '.$c.'</p>' ?> <br>
-
-        <?php
-            $a = 10;
-            $b = 20;
-            $c = $a + $b;
-            echo '<p>'.$c.'</p>'.'<br>';
-            echo'<p>'.$d.'</p>';
-        ?>
-
+        <div class="container">
+            <div class="row text-center">
+                <div class="title-knowledge col-12 mt-4">
+                    <p>
+                        <span id="random-fact">Рандомные факты</span>
+                    </p>
+                </div>
+                <?php if ($hand['ageDescription']): ?>
+                    <div class="title-knowledge col-12">
+                        <p><?= 'Ваш возрастной период: '.$hand['ageDescription'].'.' ?></p>
+                    </div>
+                <?php endif; ?>
+                <?php if ($hand['birthDays']): ?>
+                    <div class="title-knowledge col-12">
+                        <p><?= 'С момента вашего рождени прошло: '.$hand['birthDays'].' дней.' ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 
-    <div class="article">
-        <p class="text">
-            Визитка построена на собственно реализованном mvc патерне. Условия задания очень детские и шаблон, на котором как понял нужно дать ответ, очень плох. Не знаю зачем это пишу, бла бла бла бла...
-        </p>
-    </div>
+    <?php if ($hand['description']): ?>
+        <div class="article">
+            <p class="text"><?= $hand['description'] ?></p>
+        </div>
+    <?php endif; ?>
 </div>

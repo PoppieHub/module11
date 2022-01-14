@@ -88,9 +88,14 @@ li a:hover {
     max-width: 300px;
     max-height: 400px;
 }
+@media (min-width: 900px) {
+    .first-content{
+        padding-left: 75%;
+    }
+}
 
 .wrapper-person {
-    max-width: 200px;
+    /*max-width: auto;*/
     align-content: center;
     height: auto;
     margin: 0 auto;
