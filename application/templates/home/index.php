@@ -8,15 +8,15 @@
             <div class="wrapper-person">
                 <div class="person row">
                     <div class="empty-block col-3"></div>
-                    <div class="content row col-9">
+                    <div id="content" class="content row col-9">
                         <div class="firstName col-md-6">
                             <?php if ($hand['firstName']): ?>
-                                <p class="first-content"><?= $hand['firstName'] ?></p>
+                                <p class="first-content" id="firstName"><?= $hand['firstName'] ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="lastName col-md-6">
                             <?php if ($hand['lastName']): ?>
-                                <p><?= $hand['lastName'] ?></p>
+                                <p id="lastName"><?= $hand['lastName'] ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="cityLabel col-md-6">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="city col-md-6">
                             <?php if ($hand['city']): ?>
-                                <p><?= $hand['city'] ?></p>
+                                <p id="city"><?= $hand['city'] ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="ageLabel col-md-6">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="age col-md-6">
                             <?php if ($hand['age']): ?>
-                                <p><?= $hand['age'] ?></p>
+                                <p id="age"><?= $hand['age'] ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -62,6 +62,10 @@
                         <p><?= 'С момента вашего рождени прошло: '.$hand['birthDays'].' дней.' ?></p>
                     </div>
                 <?php endif; ?>
+
+                <div class="title-knowledge col-12">
+                    <a class="generate btn btn-outline-light refresh"><i class="fas fa-sync"></i>&#160 Сгенерировать случайные данные</a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,15 +1,47 @@
-/*
-const surName = document.querySelector('#surnameOutput');
-const firstName = document.querySelector('#firstNameOutput');
-const secondName = document.querySelector('#secondNameOutput');
-const birthYear = document.querySelector('#birthYearOutput');
-const gender = document.querySelector('#genderOutput');
-const profession = document.querySelector('#professionOutput');
-const image = document.querySelector('.avatar');
+const btnGenerate = document.querySelector('.generate');
+const age = document.querySelector('#age');
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const city = document.querySelector('#city');
+const content = document.querySelector('#content');
 
-const btnDelete =  document.querySelector('.delete');
-const btnRefresh =  document.querySelector('.refresh');
- */
+/*
+* Считает колличество лет от приходящей даты
+*/
+function calculateAge (birthDate) {
+    birthDate = new Date(birthDate);
+    let otherDate = new Date();
+
+    let years = (otherDate.getFullYear() - birthDate.getFullYear());
+
+    if (otherDate.getMonth() < birthDate.getMonth() ||
+        otherDate.getMonth() === birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
+        years--;
+    }
+
+    return years;
+}
+
+/*
+* Api Генерирует рандомные исторические факты
+*/
+function api () {
+
+    return  $.get('http://numbersapi.com/random/year?callback=showNumber', function(data) {
+        $('#random-fact').text(data);
+    });
+
+}
+
+const createBlock = (selectorName, className) => {
+    const selector = document.createElement(selectorName);
+
+    if(className){
+        selector.classList.add(className);
+    }
+
+    return selector;
+}
 
 function generate () {
     const initPerson = personGenerator.getPerson();
@@ -29,65 +61,22 @@ function generate () {
 
     initPerson.age = calculateAge(date);
 
-    console.log(initPerson);
+    console.log(content);
 
-
-    $.get('http://numbersapi.com/random/year?callback=showNumber', function(data) {
-        $('#random-fact').text(data);
-    });
-
-
-
-    /*
-    surName.innerText = initPerson.surName;
+    lastName.innerText = initPerson.surName;
     firstName.innerText = initPerson.firstName;
-    secondName.innerText = initPerson.secondName;
-    birthYear.innerText = initPerson.birth;
-    gender.innerText = initPerson.gender;
-    profession.innerText = initPerson.profession;
+    age.innerText = initPerson.age;
+    city.innerText = initPerson.city;
 
-    if (initPerson.gender === personGenerator.GENDER_MALE){
-        image.src = 'assets/img/male.svg';
-    } else if (initPerson.gender === personGenerator.GENDER_FEMALE) {
-        image.src = 'assets/img/female.svg';
-    } else {
-        image.src = 'assets/img/default.svg';
-    }
-     */
+    console.log(createBlock('div','birth'));
+
 }
+
+btnGenerate.addEventListener('click', function () {
+    generate();
+    api();
+});
 
 window.addEventListener('load', function () {
-    generate();
+    api();
 });
-/*
-
-btnDelete.addEventListener('click',function () {
-
-    image.src = 'assets/img/default.svg';
-
-    surName.innerText = 'Фамилия';
-    firstName.innerText = 'Имя';
-    secondName.innerText = 'Отчество';
-    birthYear.innerText = 'Дата рождения';
-    gender.innerText = 'Пол';
-    profession.innerText = 'Профессия';
-
-});
-
-btnRefresh.addEventListener('click',()=>generate());
-
- */
-
-function calculateAge (birthDate) {
-    birthDate = new Date(birthDate);
-    let otherDate = new Date();
-
-    let years = (otherDate.getFullYear() - birthDate.getFullYear());
-
-    if (otherDate.getMonth() < birthDate.getMonth() ||
-        otherDate.getMonth() === birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
-        years--;
-    }
-
-    return years;
-}
