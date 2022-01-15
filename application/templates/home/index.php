@@ -54,17 +54,17 @@
                 </div>
                 <?php if ($hand['ageDescription']): ?>
                     <div class="title-knowledge col-12">
-                        <p><?= 'Ваш возрастной период: '.$hand['ageDescription'].'.' ?></p>
+                        <p class="periodInfo"><?= 'Возрастной период: '.$hand['ageDescription'].'.' ?></p>
                     </div>
                 <?php endif; ?>
                 <?php if ($hand['birthDays']): ?>
                     <div class="title-knowledge col-12">
-                        <p><?= 'С момента вашего рождени прошло: '.$hand['birthDays'].' дней.' ?></p>
+                        <p class="birthDays"><?= 'С момента рождения прошло: '.$hand['birthDays'].' дней.' ?></p>
                     </div>
                 <?php endif; ?>
 
                 <div class="title-knowledge col-12">
-                    <a class="generate btn btn-outline-light refresh"><i class="fas fa-sync"></i>&#160 Сгенерировать случайные данные</a>
+                    <a class="generate btn btn-outline-light refresh"><i class="fas fa-sync"></i>&#160 Сгенерировать фейковые данные</a>
                 </div>
             </div>
         </div>
@@ -76,3 +76,6 @@
         </div>
     <?php endif; ?>
 </div>
+
+<script type="text/javascript" src="../../../assets/js/init.js" ></script>
+<script type="text/javascript" src="../../../assets/js/personGenerator.js" ></script>

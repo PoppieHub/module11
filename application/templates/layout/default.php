@@ -26,8 +26,7 @@
         <?php  echo $content ?>
         <?php include 'includes/footer/footer.inc.php' ?>
     </div>
-    <script type="text/javascript" src="../../../assets/js/init.js" ></script>
-    <script type="text/javascript" src="../../../assets/js/personGenerator.js" ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
             integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
@@ -41,7 +40,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
             integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
             crossorigin="anonymous"></script>
-
 
 </body>
 </html>

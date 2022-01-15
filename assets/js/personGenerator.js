@@ -197,7 +197,7 @@ const personGenerator = {
     randomDate: function() {
         let day, month, year;
 
-        year = this.randomIntNumber(1989,2003);
+        year = this.randomIntNumber(1922,2020);
         month  = this.randomValue(this.month);
 
         if (month === 'февраля') {
