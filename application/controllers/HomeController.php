@@ -58,4 +58,12 @@ class HomeController extends AbstractController {
         $this->view->render($forRender);
 
     }
+
+    public function portfolioAction() {
+
+        $forRender = parent::renderDefult();
+        $forRender['portfolio'] = $this->model->getPortfolio();
+
+        $this->view->render($forRender);
+    }
 }

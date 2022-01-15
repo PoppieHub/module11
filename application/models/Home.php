@@ -39,5 +39,8 @@ class Home extends Model {
         )->format('%a');
     }
 
-
+    public function getPortfolio(): bool|array
+    {
+        return $this->db->haveMany('SELECT * FROM portfolio');
+    }
 }
