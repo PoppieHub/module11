@@ -3,7 +3,6 @@
 namespace application\controllers;
 
 use application\core\AbstractController;
-use application\models\PeriodOfLife;
 
 class HomeController extends AbstractController {
 

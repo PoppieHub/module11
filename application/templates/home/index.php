@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col-3">
-            <?= '<img class="img" src="/assets/img/picture.svg">' ?>
+            <?= '<img class="img" src="/public/assets/img/picture.svg">' ?>
         </div>
     </div>
 
@@ -77,5 +77,5 @@
     <?php endif; ?>
 </div>
 
-<script type="text/javascript" src="../../../assets/js/init.js" ></script>
-<script type="text/javascript" src="../../../assets/js/personGenerator.js" ></script>
+<script type="text/javascript" src="../../../public/assets/js/init.js" ></script>
+<script type="text/javascript" src="../../../public/assets/js/personGenerator.js" ></script>
