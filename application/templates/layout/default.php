@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
           integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>
-        <?php echo $hand['title']; ?>
+        <?php if (!empty($hand)) {
+            echo $hand['title'];
+        } ?>
     </title>
 </head>
 <body>
@@ -23,7 +25,9 @@
             <?php include 'public/includes/header/logo.inc.php' ?>
             <?php include 'public/includes/top-menu/menu.inc.php' ?>
         </div>
-        <?php  echo $content ?>
+        <?php if (!empty($content)) {
+            echo $content;
+        } ?>
         <?php include 'public/includes/footer/footer.inc.php' ?>
     </div>
 

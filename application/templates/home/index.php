@@ -1,5 +1,5 @@
 <div class="about_me">
-    <?php if ($hand['hello']): ?>
+    <?php if (!empty($hand['hello'])): ?>
         <h1><?=  $hand['hello'] ?></h1>
     <?php endif; ?>
 
@@ -10,12 +10,12 @@
                     <div class="empty-block col-3"></div>
                     <div id="content" class="content row col-9">
                         <div class="firstName col-md-6">
-                            <?php if ($hand['firstName']): ?>
+                            <?php if (!empty($hand['firstName'])): ?>
                                 <p class="first-content" id="firstName"><?= $hand['firstName'] ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="lastName col-md-6">
-                            <?php if ($hand['lastName']): ?>
+                            <?php if (!empty($hand['lastName'])): ?>
                                 <p id="lastName"><?= $hand['lastName'] ?></p>
                             <?php endif; ?>
                         </div>
@@ -23,7 +23,7 @@
                             <p class="first-content">Город:</p>
                         </div>
                         <div class="city col-md-6">
-                            <?php if ($hand['city']): ?>
+                            <?php if (!empty($hand['city'])): ?>
                                 <p id="city"><?= $hand['city'] ?></p>
                             <?php endif; ?>
                         </div>
@@ -31,7 +31,7 @@
                             <p class="first-content">Возраст:</p>
                         </div>
                         <div class="age col-md-6">
-                            <?php if ($hand['age']): ?>
+                            <?php if (!empty($hand['age'])): ?>
                                 <p id="age"><?= $hand['age'] ?></p>
                             <?php endif; ?>
                         </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col-3">
-            <?= '<img class="img" src="/public/assets/img/picture.svg">' ?>
+            <?= '<img class="img" alt="picture" src="/public/assets/img/picture.svg">' ?>
         </div>
     </div>
 
@@ -52,12 +52,12 @@
                         <span id="random-fact">Рандомные факты</span>
                     </p>
                 </div>
-                <?php if ($hand['ageDescription']): ?>
+                <?php if (!empty($hand['ageDescription'])): ?>
                     <div class="title-knowledge col-12">
                         <p class="periodInfo"><?= 'Возрастной период: '.$hand['ageDescription'].'.' ?></p>
                     </div>
                 <?php endif; ?>
-                <?php if ($hand['birthDays']): ?>
+                <?php if (!empty($hand['birthDays'])): ?>
                     <div class="title-knowledge col-12">
                         <p class="birthDays"><?= 'С момента рождения прошло: '.$hand['birthDays'].' дней.' ?></p>
                     </div>
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <?php if ($hand['description']): ?>
+    <?php if (!empty($hand['description'])): ?>
         <div class="article">
             <p class="text"><?= $hand['description'] ?></p>
         </div>

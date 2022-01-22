@@ -6,7 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../../public/assets/css/error.css"/>
-    <title><?php echo $code; ?></title>
+    <title>
+        <?php
+            if (!empty($code)) {
+                echo $code;
+            }
+        ?>
+    </title>
 </head>
 <body>
 <div>
@@ -100,8 +106,14 @@
     </svg>
 </div>
 <div class="text">
-    <h1>Ошибка <?php echo $code.'. '; ?></h1>
-    <h2><?php echo $text; ?></h2>
+    <h1>Ошибка <?php if (!empty($code)) {
+            echo $code.'. ';
+        } ?>
+    </h1>
+    <h2><?php if (!empty($text)) {
+            echo $text;
+        } ?>
+    </h2>
 </div>
 </body>
 </html>
