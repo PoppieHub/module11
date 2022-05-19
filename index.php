@@ -18,5 +18,3 @@ session_start();
 
 $router = new Router();
 echo $router->redirectToRoute();
-
-phpinfo();
