@@ -13,5 +13,5 @@
 Конфигурация подключения к бд осуществляется в `application/config/dbConnect.php`.
 Конфигурация связи маршрута с акшеном в контроллере `application/config/routes.php`.
 
-#### Также установлена библиотека php-gd
+#### Также установлена библиотека php-gd:
 ![](README/phpinfo-gd.png)
